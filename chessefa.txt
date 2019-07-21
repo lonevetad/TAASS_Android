@@ -1,0 +1,4 @@
+sviluppo del'applicativo
+4 schermate in croce che chiamano le REST API e visualizzano i risultati (gruppi e utenti)
+forse si fa la ricerca avanzata e, se si facesse login/registrazione, anche la creazione di group
+
