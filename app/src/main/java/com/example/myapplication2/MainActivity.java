@@ -1,0 +1,225 @@
+package com.example.myapplication2;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.lang.reflect.Type;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class MainActivity extends AppCompatActivity {
+
+    String url = "http:/192.168.43.38:8080/";
+    String serverGroup = url + "Group/";
+    String serverUser = url + "User/";
+
+    Button button;
+    Button button_getAllUser;
+    Button button_changePage;
+    Button button_getGroupByGroupId;
+    TextView textView;
+    private Gson gson;
+
+    private List<AppGroup> appGroups;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+
+        button = (Button) findViewById(R.id.bn);
+        button_getAllUser = (Button) findViewById(R.id.getAllUser);
+        button_getGroupByGroupId = (Button) findViewById(R.id.btnGroupById);
+        button_changePage = (Button) findViewById(R.id.button3);
+        textView = (TextView) findViewById(R.id.txt);
+
+
+
+
+        //------------------------------------------------------------------------------GET ALL USER
+        button_getAllUser.setOnClickListener(new View.OnClickListener() {
+            String server_url = serverUser + "listAllUsers";
+            @Override
+            public void onClick(View v) {
+                final RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
+
+                StringRequest stringRequest = new StringRequest(Request.Method.GET, server_url, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        textView.setText("");
+                        System.out.println(response);
+                        textView.setText(response);
+                        requestQueue.stop();
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        textView.setText("Something went wrong");
+                        error.printStackTrace();
+                        requestQueue.stop();
+                    }
+                });
+                requestQueue.add(stringRequest);
+            }
+        });
+
+        //----------------------------------------------------------------------------- GET ALL GROUP
+        button.setOnClickListener(new View.OnClickListener() {
+            String server_url = serverGroup + "listGroupRest";
+            @Override
+            public void onClick(View v) {
+
+                final RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
+
+                StringRequest stringRequest = new StringRequest(Request.Method.GET, server_url, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        JSONObject jsonObject = null;
+
+                            //Creo gsonBuilder
+                            GsonBuilder gsonBuilder = new GsonBuilder();
+                            gsonBuilder.setDateFormat("yyyy/MM/dd");
+                            gson = gsonBuilder.create();
+                            Type typeOfList = new TypeToken<ArrayList<AppGroup>>(){}.getType();
+                            appGroups = gson.fromJson(response,typeOfList);
+
+                            System.out.println(response);
+                            System.out.println("AppGroupName:" + appGroups.get(0).getGroupName());
+                            textView.setText(response);
+                            requestQueue.stop();
+
+
+
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                        textView.setText("Something went wrong");
+                        error.printStackTrace();
+                        requestQueue.stop();
+                    }
+                });
+                requestQueue.add(stringRequest);
+
+            }
+        });
+
+        //----------------------------------------------------------------------------- GET GROUP BY GROUP ID --------------------------------------
+
+        button_getGroupByGroupId.setOnClickListener(new View.OnClickListener() {
+            List<AppGroup> myList;
+            int groupId = 4;
+            String server_url = serverGroup + "info/" + groupId;
+            @Override
+            public void onClick(View v) {
+
+                final RequestQueue requestQueue = Volley.newRequestQueue(MainActivity.this);
+
+                StringRequest stringRequest = new StringRequest(Request.Method.GET, server_url, new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        //myList = response;
+                        System.out.println(response);
+                        textView.setText(response);
+                        requestQueue.stop();
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                        textView.setText("Something went wrong");
+                        error.printStackTrace();
+                        requestQueue.stop();
+                    }
+                });
+                requestQueue.add(stringRequest);
+
+            }
+        });
+
+        //------------------------------------------------------------------------- CHANGE PAGE ------------------------------------------------------
+
+        button_changePage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,Main2Activity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+
+    }
+
+    public void provaRichiesta(){
+
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+}
