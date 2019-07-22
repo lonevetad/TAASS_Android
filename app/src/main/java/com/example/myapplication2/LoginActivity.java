@@ -2,7 +2,6 @@ package com.example.myapplication2;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -21,12 +20,10 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.io.UnsupportedEncodingException;
 
 public class LoginActivity extends AppCompatActivity {
-
 
     Button btn_login;
     TextView tv_userName;
@@ -95,7 +92,11 @@ public class LoginActivity extends AppCompatActivity {
 
                 System.out.println("RESPONSE LOGIN:" + response);
                 if(response.length() > 0 ){
-                    login(response);
+                    try {
+                        login(response);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }else{
                     tv_errorLogin.setText("Email o password errati");
                     tv_errorLogin.setVisibility(View.VISIBLE);
@@ -136,9 +137,12 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    public void login(String response){
+    public void login(String response) throws JSONException {
         System.out.println("-------------------------------------------" + response);
-        Intent intent = new Intent(LoginActivity.this, Main2Activity.class);
+        JSONObject jsonResponse = new JSONObject(response);
+        System.out.println(jsonResponse);
+        UserLogged.setIstanceData(Long.parseLong(jsonResponse.getString("userId")),jsonResponse.getString("userName"));
+        Intent intent = new Intent(LoginActivity.this, EsploraActivity.class);
         startActivity(intent);
 
     }

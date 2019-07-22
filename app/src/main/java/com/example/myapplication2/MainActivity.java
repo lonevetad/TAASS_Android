@@ -180,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
         button_changePage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,Main2Activity.class);
+                Intent intent = new Intent(MainActivity.this, EsploraActivity.class);
                 startActivity(intent);
             }
         });
