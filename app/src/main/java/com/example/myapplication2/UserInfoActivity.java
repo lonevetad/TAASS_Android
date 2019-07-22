@@ -31,7 +31,6 @@ public class UserInfoActivity extends AppCompatActivity {
                     "il colore della pelle molto chiaro ed è alta 1, 65 cm. E' una studentessa e frequenta da quattro anni" +
                     " il liceo classico di Siena. E' una ragazza molto allegra, espansiva e ha molti amici. Nel suo tempo libero " +
                     "ha due hobby in particolare: collezionare monete di tutti i Paesi del mondo e praticare lo sport dell'equitazione. ");
-
         }
     }
 
