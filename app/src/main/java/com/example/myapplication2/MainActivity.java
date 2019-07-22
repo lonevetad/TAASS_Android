@@ -23,29 +23,22 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.lang.reflect.Type;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    String url = "http:/192.168.43.38:8080/";
+    public static final String url = "http:/192.168.1.145:8080/";
     String serverGroup = url + "Group/";
     String serverUser = url + "User/";
 
     Button button;
     Button button_getAllUser;
     Button button_changePage;
+    Button button_login;
     Button button_getGroupByGroupId;
     TextView textView;
     private Gson gson;
@@ -71,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
         button = (Button) findViewById(R.id.bn);
         button_getAllUser = (Button) findViewById(R.id.getAllUser);
         button_getGroupByGroupId = (Button) findViewById(R.id.btnGroupById);
+        button_login = (Button) findViewById(R.id.button_login);
         button_changePage = (Button) findViewById(R.id.button3);
         textView = (TextView) findViewById(R.id.txt);
 
@@ -187,6 +181,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,Main2Activity.class);
+                startActivity(intent);
+            }
+        });
+
+        //------------------------------------------------------------------------- CHANGE PAGE LOGIN-----------------------------------------------
+
+        button_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });

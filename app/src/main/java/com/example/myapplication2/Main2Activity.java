@@ -27,7 +27,7 @@ import java.util.List;
 
 public class Main2Activity extends AppCompatActivity {
 
-    private String url = "http:/192.168.43.38:8080/";
+    private String url = "http:/192.168.1.145:8080/";
     private String serverGroup = url + "Group/";
     private String serverUser = url + "User/";
 
