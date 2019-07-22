@@ -19,6 +19,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.myapplication2.entities.AppGroup;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -31,9 +32,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String url = "http:/192.168.1.145:8080/";
-    String serverGroup = url + "Group/";
-    String serverUser = url + "User/";
+    public static final String url = "http:/192.168.42.166:8080/", serverGroup = url + "Group/", serverUser = url + "User/";
 
     Button button;
     Button button_getAllUser;
@@ -192,8 +191,7 @@ public class MainActivity extends AppCompatActivity {
         button_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(intent);
+                goToLogInActivity();
             }
         });
 
@@ -207,7 +205,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        /*
+         ora eseguiamo tutte le cose secondarie, dopo il caricamento
+        * */
 
+        if(! UserLogged.getInstance().isLogged()){
+            //not logged? -> logga !
+            goToLogInActivity();
+        }
+
+        // end on create
     }
 
     public void provaRichiesta(){
@@ -235,5 +242,14 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    //
+
+    // altro
+
+    protected void goToLogInActivity(){
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        startActivity(intent);
     }
 }

@@ -1,6 +1,5 @@
 package com.example.myapplication2;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.myapplication2.entities.AppGroup;
 
 public class ListAppGroup extends RecyclerView.Adapter<ListAppGroup.ViewHolder>{
 

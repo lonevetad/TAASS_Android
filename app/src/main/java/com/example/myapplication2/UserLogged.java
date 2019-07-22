@@ -6,10 +6,14 @@ public class UserLogged{
     private static UserLogged myIstance = null;
 
     public Long userId;
-    public String userName = "";
-    public boolean isLogged = false;
+    public String userName, userEmail;
+    public boolean isLogged;
 
-    protected UserLogged(){}
+    protected UserLogged(){
+        userName = "";
+        userEmail = "";
+        isLogged = false;
+    }
 
     public static synchronized UserLogged getInstance(){
         if(myIstance == null)
@@ -46,5 +50,13 @@ public class UserLogged{
 
     public void setLogged(boolean logged) {
         isLogged = logged;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 }

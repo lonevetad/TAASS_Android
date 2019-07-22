@@ -1,5 +1,6 @@
 package com.example.myapplication2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -26,11 +27,14 @@ public class UserInfoActivity extends AppCompatActivity {
 
         if(utente.isLogged){
             username.setText(utente.getUserName());
-            email.setText(utente.getUserName()+ "@gmail.com");
+            email.setText(utente.getUserEmail()); // + "@gmail.com");
             description.setText("Ludovica ha 18 anni, è bionda, ha gli occhi verdi, " +
                     "il colore della pelle molto chiaro ed è alta 1, 65 cm. E' una studentessa e frequenta da quattro anni" +
                     " il liceo classico di Siena. E' una ragazza molto allegra, espansiva e ha molti amici. Nel suo tempo libero " +
                     "ha due hobby in particolare: collezionare monete di tutti i Paesi del mondo e praticare lo sport dell'equitazione. ");
+        } else {
+            Intent intent = new Intent(UserInfoActivity.this, LoginActivity.class);
+            startActivity(intent);
         }
     }
 
