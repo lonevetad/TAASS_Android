@@ -1,5 +1,7 @@
 package com.example.myapplication2;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -35,7 +37,16 @@ public class ListAppGroup extends RecyclerView.Adapter<ListAppGroup.ViewHolder>{
             @Override
             public void onClick(View view) {
                 System.out.println(myListData.getGroupName());
+                System.out.println("Gruppo:" + myListData);
                 Toast.makeText(view.getContext(),"click on item: "+myListData.getDescription(),Toast.LENGTH_LONG).show();
+
+                System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA: " + myListData.getGroupId());
+                Intent intent = new Intent(view.getContext(), GroupInfoActivity.class);
+                intent.putExtra("groupId",Long.toString(myListData.getGroupId()));
+                intent.putExtra("groupName",myListData.getGroupName());
+                intent.putExtra("groupDescription",myListData.getDescription());
+                intent.putExtra("groupCreator",myListData.getCreator());
+                view.getContext().startActivity(intent);
             }
         });
     }

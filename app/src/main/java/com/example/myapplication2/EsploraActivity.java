@@ -45,6 +45,7 @@ public class EsploraActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+
             }
         });
 
@@ -71,6 +72,7 @@ public class EsploraActivity extends AppCompatActivity {
                 Type typeOfList = new TypeToken<ArrayList<AppGroup>>(){}.getType();
                 allGroups = (List<AppGroup>)gson.fromJson(response,typeOfList);
                 System.out.println(response);
+                System.out.println("AllGroup: "+allGroups);
                 System.out.println("AppGroupName:" + allGroups.get(0).getGroupName());
                 requestQueue.stop();
                 RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);

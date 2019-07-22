@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     Button button_changePage;
     Button button_login;
     Button button_getGroupByGroupId;
+    Button button_userPage;
     TextView textView;
     private Gson gson;
 
@@ -66,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         button_getGroupByGroupId = (Button) findViewById(R.id.btnGroupById);
         button_login = (Button) findViewById(R.id.button_login);
         button_changePage = (Button) findViewById(R.id.button3);
+        button_userPage= (Button) findViewById(R.id.button_userPage);
         textView = (TextView) findViewById(R.id.txt);
 
 
@@ -195,7 +197,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //-----------------------------------------------------------------------------CHANGE PAGE USER--------------------------------------
 
+        button_userPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, UserInfoActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
     }
