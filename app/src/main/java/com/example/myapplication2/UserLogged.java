@@ -7,6 +7,7 @@ public class UserLogged{
 
     public Long userId;
     public String userName = "";
+    public String email = "";
     public boolean isLogged = false;
 
     protected UserLogged(){}
@@ -17,11 +18,21 @@ public class UserLogged{
         return myIstance;
     }
 
-    public static void setIstanceData(Long id, String userName){
+    public static void setIstanceData(Long id, String userName,String email){
         UserLogged istanza = UserLogged.getInstance();
         myIstance.userId = id;
         myIstance.userName = userName;
         myIstance.isLogged = true;
+        myIstance.email = email;
+    }
+
+    public void logout(){
+        if(this.isLogged){
+            this.isLogged = false;
+            this.userId = new Long(-1);
+            this.userName = "";
+            this.email = "";
+        }
     }
 
     public Long getUserId() {
@@ -40,6 +51,14 @@ public class UserLogged{
         this.userName = userName;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public boolean isLogged() {
         return isLogged;
     }
@@ -47,4 +66,5 @@ public class UserLogged{
     public void setLogged(boolean logged) {
         isLogged = logged;
     }
+
 }

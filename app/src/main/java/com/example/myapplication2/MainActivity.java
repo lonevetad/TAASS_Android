@@ -114,8 +114,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
 
-                        JSONObject jsonObject = null;
-
+                            JSONObject jsonObject = null;
                             //Creo gsonBuilder
                             GsonBuilder gsonBuilder = new GsonBuilder();
                             gsonBuilder.setDateFormat("yyyy/MM/dd");

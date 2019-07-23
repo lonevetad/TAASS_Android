@@ -9,4 +9,6 @@
     tools:showIn="@layout/activity_group_info"
     android:background="#09c6df">
 
+
+
 </LinearLayout>

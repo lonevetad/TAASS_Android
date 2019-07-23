@@ -1,8 +1,11 @@
 package com.example.myapplication2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 public class GroupInfoActivity extends AppCompatActivity {
 
@@ -11,11 +14,17 @@ public class GroupInfoActivity extends AppCompatActivity {
     String groupDescription;
     String groupCreator;
 
+
+    Button nav_esplora;
+    Button nav_profilo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group_info);
 
+
+        setUpNav();
         getIncomingIntent();
         System.out.println(toStringGroup());
     }
@@ -38,6 +47,29 @@ public class GroupInfoActivity extends AppCompatActivity {
                 " GroupCreator: " + this.groupCreator +
                 " GroupDescription: " + this.groupDescription +
                 " GroupName: " + this.groupName;
+    }
+
+    public void setUpNav(){
+
+        nav_esplora = (Button) findViewById(R.id.nav_esplora);
+        nav_profilo = (Button) findViewById(R.id.nav_profilo);
+
+
+        nav_esplora.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GroupInfoActivity.this, EsploraActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        nav_profilo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GroupInfoActivity.this, UserInfoActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 }

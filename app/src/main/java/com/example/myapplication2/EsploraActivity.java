@@ -1,5 +1,6 @@
 package com.example.myapplication2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -8,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -29,11 +31,15 @@ public class EsploraActivity extends AppCompatActivity {
     private Gson gson;
     private List<AppGroup> allGroups;
 
+    Button nav_esplora;
+    Button nav_profilo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
+        setUpNav();
         setUpAllStuff();
         getAllGroup();
     }
@@ -76,6 +82,29 @@ public class EsploraActivity extends AppCompatActivity {
             }
         });
         requestQueue.add(stringRequest);
+    }
+
+    public void setUpNav(){
+
+        nav_esplora = (Button) findViewById(R.id.esploraNav_esplora);
+        nav_profilo = (Button) findViewById(R.id.esploraNav_profilo);
+
+
+        nav_esplora.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(EsploraActivity.this, EsploraActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        nav_profilo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(EsploraActivity.this, UserInfoActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 }
