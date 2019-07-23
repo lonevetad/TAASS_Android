@@ -1,5 +1,7 @@
 package com.example.myapplication2.entities;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.Arrays;
@@ -7,16 +9,31 @@ import java.util.List;
 
 public class GroupFullDetail implements Serializable {
 
-    private Long groupId, creatorId;
+    @SerializedName("groupId")
+    private Long groupId;
 
-    private String groupName, description, creator;
+    @SerializedName("creatorId")
+    private Long creatorId;
 
+    @SerializedName("groupName")
+    private String groupName;
+
+    @SerializedName("v")
+    private String  description;
+
+    @SerializedName("creator")
+    private String  creator;
+
+    @SerializedName("groupDate")
     private java.sql.Date groupDate;
 
+    @SerializedName("location")
     private GoogleLocation location;
 
+    @SerializedName("tags")
     private List<AppTag> tags;
 
+    @SerializedName("members")
     private List<AppUser> members;
 
     public GroupFullDetail(AppGroup g, List<AppTag> t, List<AppUser> members, GoogleLocation location) {
