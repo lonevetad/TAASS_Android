@@ -89,7 +89,7 @@ public class UserInfoActivity extends AppCompatActivity {
 
         if (utente.isLogged()) {
             username.setText(utente.getUserName());
-            email.setText(utente.getUserEmail()); // + "@gmail.com");
+            email.setText(utente.getEmail()); // + "@gmail.com");
             description.setText("Ludovica ha 18 anni, è bionda, ha gli occhi verdi, " +
                     "il colore della pelle molto chiaro ed è alta 1, 65 cm. E' una studentessa e frequenta da quattro anni" +
                     " il liceo classico di Siena. E' una ragazza molto allegra, espansiva e ha molti amici. Nel suo tempo libero " +

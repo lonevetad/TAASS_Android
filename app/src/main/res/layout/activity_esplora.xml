@@ -11,6 +11,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:orientation="vertical">
 
         <!-- RICERCA -->
@@ -117,7 +118,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="3"
                     android:orientation="horizontal">
 
@@ -213,7 +214,41 @@
 
             </android.support.v7.widget.RecyclerView>
         </LinearLayout>
+
     </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/esploraNav_esplora"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="#FFFFFF"
+                android:drawableTop="@drawable/ic_home_black_24dp"
+                android:text="Esplora" />
+
+
+            <Button
+                android:id="@+id/esploraNav_profilo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/white"
+                android:drawableTop="@drawable/ic_perm_identity_black_24dp"
+                android:text="Profilo" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
 
 
 </android.support.design.widget.CoordinatorLayout>

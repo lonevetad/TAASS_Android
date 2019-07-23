@@ -12,7 +12,7 @@ public class UserLogged{
 
     protected UserLogged(){
         userName = "";
-        userEmail = "";
+        email = "";
         isLogged = false;
     }
 
@@ -71,11 +71,4 @@ public class UserLogged{
         isLogged = logged;
     }
 
-    public String getUserEmail() {
-        return email;
-    }
-
-    public void setUserEmail(String userEmail) {
-        this.email = userEmail;
-    }
 }

@@ -142,8 +142,7 @@ public class LoginActivity extends AppCompatActivity {
         System.out.println("-------------------------------------------" + response);
         JSONObject jsonResponse = new JSONObject(response);
         System.out.println(jsonResponse);
-        UserLogged.setIstanceData(Long.parseLong(jsonResponse.getString("userId")),jsonResponse.getString("userName"));
-        UserLogged.getInstance().setUserEmail(jsonResponse.getString("userEmail"));
+        UserLogged.setIstanceData(Long.parseLong(jsonResponse.getString("userId")),jsonResponse.getString("userName"),jsonResponse.getString("userEmail"));
         Intent intent = new Intent(LoginActivity.this, EsploraActivity.class);
         startActivity(intent);
 

@@ -91,15 +91,15 @@ public class ListGroupFullDetail extends RecyclerView.Adapter<ListGroupFullDetai
         }
 
         public void setData(GroupFullDetail g){
-            ArrayAdapter adapter;
+            //ArrayAdapter adapter;
             this.gfd = g;
             this.name.setText(g.getGroupName());
             this.date.setText(g.getGroupDate().toString());
             this.location.setText(g.getLocation().getName());
             this.creator.setText(g.getCreator());
             this.memberCount.setText("Members: " + g.getMembers().size());
-            adapter = new ArrayAdapter(context, 0+R.id.tagsContainerGroup, g.getMembers());
-            this.tagsContainer.setAdapter(adapter);
+            //adapter = new ArrayAdapter(context, R.id.tagsLayoutPanelGroup, g.getMembers());
+            //this.tagsContainer.setAdapter(adapter);
         }
     }
 }
