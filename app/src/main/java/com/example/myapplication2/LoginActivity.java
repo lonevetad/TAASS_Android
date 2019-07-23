@@ -77,7 +77,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void checkUserPassword(String username, String password) throws JSONException {
 
-        String server_url = MainActivity.url + "User/login2";
+        String server_url = MainActivity.url + "User/login";
 
         final Boolean userExist = false;
         final RequestQueue requestQueue = Volley.newRequestQueue(LoginActivity.this);

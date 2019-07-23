@@ -180,7 +180,7 @@ public class GroupInfoActivity extends AppCompatActivity {
         private String userName;
         */
 
-        String server_url = MainActivity.serverGroup + "isMember2";
+        String server_url = MainActivity.serverGroup + "isMember";
 
         JSONObject jsonBody = new JSONObject();
         jsonBody.put("userId", UserLogged.getInstance().getUserId());
