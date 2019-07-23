@@ -56,7 +56,7 @@
                     android:src="@drawable/ic_location_on_black_24dp"/>
 
                 <TextView
-                    android:id="@+id/location"
+                    android:id="@+id/info_location"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -78,7 +78,7 @@
                     android:src="@drawable/ic_perm_identity_black_24dp"/>
 
                 <TextView
-                    android:id="@+id/creator"
+                    android:id="@+id/info_creator"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -101,7 +101,7 @@
                     android:layout_gravity="center_vertical"/>
 
                 <TextView
-                    android:id="@+id/tag1"
+                    android:id="@+id/info_tag1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -182,18 +182,19 @@
                 android:paddingTop="20dp">
 
                 <TextView
-                    android:id="@+id/group_description"
+                    android:id="@+id/info_description"
                     android:layout_width="match_parent"
                     android:layout_height="130dp" />
 
             </LinearLayout>
 
             <Button
+                android:id="@+id/iscrizione"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/gradient_login"
-                android:textColor="@android:color/black"
-                android:text="Iscriviti" />
+                android:text="Iscriviti"
+                android:textColor="@android:color/black" />
 
 
         </LinearLayout>
