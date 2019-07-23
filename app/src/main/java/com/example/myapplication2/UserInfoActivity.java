@@ -73,8 +73,8 @@ public class UserInfoActivity extends AppCompatActivity {
 
     public void setUpNav() {
 
-        nav_esplora = (Button) findViewById(R.id.nav_esplora);
-        nav_profilo = (Button) findViewById(R.id.nav_profilo);
+        nav_esplora = (Button) findViewById(R.id.user_nav_esplora);
+        nav_profilo = (Button) findViewById(R.id.user_nav_profilo);
 
 
         nav_esplora.setOnClickListener(new View.OnClickListener() {
