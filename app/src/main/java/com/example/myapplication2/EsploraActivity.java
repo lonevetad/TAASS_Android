@@ -25,9 +25,7 @@ import java.util.List;
 
 public class EsploraActivity extends AppCompatActivity {
 
-    private String url = "http:/192.168.1.145:8080/";
-    private String serverGroup = url + "Group/";
-    private String serverUser = url + "User/";
+
 
     private Gson gson;
     private List<AppGroup> allGroups;
@@ -49,7 +47,7 @@ public class EsploraActivity extends AppCompatActivity {
 
     public void getAllGroup(){
 
-        String server_url = serverGroup + "listGroupRest";
+        String server_url = MainActivity.serverGroup + "listGroupRest";
 
         final RequestQueue requestQueue = Volley.newRequestQueue(EsploraActivity.this);
 

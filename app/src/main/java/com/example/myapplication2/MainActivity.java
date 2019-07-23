@@ -31,9 +31,8 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String url = "http:/192.168.1.145:8080/";
-    String serverGroup = url + "Group/";
-    String serverUser = url + "User/";
+    public static final String url = "http:/192.168.43.38:8080/" , serverGroup = url + "Group/", serverUser = url + "User/";
+
 
     Button button;
     Button button_getAllUser;
