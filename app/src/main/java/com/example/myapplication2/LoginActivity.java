@@ -51,6 +51,7 @@ public class LoginActivity extends AppCompatActivity {
         tv_password = (TextView) findViewById(R.id.password);
         tv_errorLogin = (TextView) findViewById(R.id.tv_errorLogin);
 
+
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -142,7 +143,7 @@ public class LoginActivity extends AppCompatActivity {
         JSONObject jsonResponse = new JSONObject(response);
         System.out.println(jsonResponse);
         UserLogged.setIstanceData(Long.parseLong(jsonResponse.getString("userId")),jsonResponse.getString("userName"));
-        Intent intent = new Intent(LoginActivity.this, EsploraActivity.class);
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
         startActivity(intent);
 
     }

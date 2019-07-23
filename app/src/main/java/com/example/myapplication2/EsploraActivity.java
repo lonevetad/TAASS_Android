@@ -15,6 +15,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.myapplication2.entities.AppGroup;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -24,8 +25,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EsploraActivity extends AppCompatActivity {
-
-
 
     private Gson gson;
     private List<AppGroup> allGroups;

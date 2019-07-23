@@ -19,6 +19,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.myapplication2.entities.AppGroup;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -68,6 +69,8 @@ public class MainActivity extends AppCompatActivity {
         button_changePage = (Button) findViewById(R.id.button3);
         button_userPage= (Button) findViewById(R.id.button_userPage);
         textView = (TextView) findViewById(R.id.txt);
+
+
 
 
 
@@ -191,8 +194,7 @@ public class MainActivity extends AppCompatActivity {
         button_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(intent);
+                goToLogInActivity();
             }
         });
 
@@ -205,6 +207,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+        if(! UserLogged.getInstance().isLogged()){
+            //not logged? -> logga !
+            goToLogInActivity();
+        }
 
 
     }
@@ -234,5 +242,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    protected void goToLogInActivity(){
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        startActivity(intent);
     }
 }
