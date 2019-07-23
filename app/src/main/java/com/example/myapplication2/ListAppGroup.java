@@ -41,7 +41,7 @@ public class ListAppGroup extends RecyclerView.Adapter<ListAppGroup.ViewHolder>{
                 System.out.println("Gruppo:" + myListData);
                 Toast.makeText(view.getContext(),"click on item: "+myListData.getDescription(),Toast.LENGTH_LONG).show();
 
-                System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA: " + myListData.getGroupId());
+                System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA: " + myListData.getDescription());
                 Intent intent = new Intent(view.getContext(), GroupInfoActivity.class);
                 intent.putExtra("groupId",Long.toString(myListData.getGroupId()));
                 intent.putExtra("groupName",myListData.getGroupName());

@@ -31,12 +31,16 @@ public class GroupInfoActivity extends AppCompatActivity {
     String groupCreator;
     String requestMember;
     Boolean isMember;
+    int numMember;
 
 
+    TextView num_members;
     TextView info_nomeGruppo;
     TextView info_descrizione;
     TextView info_location;
     TextView info_tag1;
+    TextView info_tag2;
+    TextView info_tag3;
     TextView info_creator;
 
     Button btn_iscrizione;
@@ -70,12 +74,15 @@ public class GroupInfoActivity extends AppCompatActivity {
         dataGIven = getIntent();
         if(dataGIven.hasExtra("groupId") &&  dataGIven.hasExtra("groupName") && dataGIven.hasExtra("groupDescription") && dataGIven.hasExtra("groupCreator")){
 
-            System.out.println("ASDASDASDASD: "+ dataGIven.getStringExtra("groupId"));
+            System.out.println("ASDASDASDASD: "+ dataGIven.getStringExtra("groupDescription"));
             this.groupCreator = dataGIven.getStringExtra("groupCreator");
             this.groupDescription = dataGIven.getStringExtra("groupDescription");
             this.groupId = dataGIven.getStringExtra("groupId");
             this.groupName = dataGIven.getStringExtra("groupName");
             this.gFull = (GroupFullDetail) dataGIven.getSerializableExtra("groupFullDetail");
+            System.out.println("COMEEEEEEEEEEEEEEEEEEEEEEEEEEEEE: " + gFull.getMembers().get(0).getUserName());
+            numMember = gFull.getMembers().size();
+
         }
     }
 
@@ -114,17 +121,34 @@ public class GroupInfoActivity extends AppCompatActivity {
     }
 
     public void setUpViewComponent(){
+        num_members = (TextView) findViewById(R.id.num_members);
         info_nomeGruppo = (TextView) findViewById(R.id.info_groupName);
         info_descrizione = (TextView) findViewById(R.id.info_description);
         info_location = (TextView) findViewById(R.id.info_location);
         info_tag1 = (TextView) findViewById(R.id.info_tag1);
+        info_tag2 = (TextView) findViewById(R.id.info_tag2);
+        info_tag3 = (TextView) findViewById(R.id.info_tag3);
         info_creator = (TextView) findViewById(R.id.info_creator);
         btn_iscrizione = (Button) findViewById(R.id.iscrizione);
 
+
+        if(gFull.getTags().get(0) != null)
+            info_tag1.setText(gFull.getTags().get(0).getName() + "  |");
+        else
+            info_tag1.setText("Nessun Tag");
+        if(gFull.getTags().get(1) != null)
+            info_tag2.setText(gFull.getTags().get(1).getName()+ "  |");
+        else
+            info_tag2.setText("");
+        if(gFull.getTags().get(2) != null)
+            info_tag3.setText(gFull.getTags().get(2).getName());
+        else
+            info_tag3.setText("");
+
+        num_members.setText(Integer.toString(gFull.getMembers().size()));
         info_nomeGruppo.setText(this.groupName);
         info_descrizione.setText(this.groupDescription);
-        info_location.setText("location da fare");
-        info_tag1.setText("tag1 da fare");
+        info_location.setText(gFull.getLocation().getName());
         info_creator.setText(this.groupCreator);
 
         btn_iscrizione.setOnClickListener(new View.OnClickListener() {
@@ -134,10 +158,13 @@ public class GroupInfoActivity extends AppCompatActivity {
                     // E' iscritto, ha premuto per disiscriversi
                     btn_iscrizione.setText("Iscriviti");
                     removeGroupMember();
+                    num_members.setText(Integer.toString(--numMember));
+
                 }else{
                     //Non è iscitto, ha premuto per iscriversi
                     btn_iscrizione.setText("Disiscriviti");
                     addGroupMember();
+                    num_members.setText(Integer.toString(++numMember));
                 }
                 isMember = !isMember;
             }

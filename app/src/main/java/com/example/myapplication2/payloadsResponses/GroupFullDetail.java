@@ -22,7 +22,7 @@ public class GroupFullDetail implements Serializable {
     @SerializedName("groupName")
     private String groupName;
 
-    @SerializedName("v")
+    @SerializedName("description")
     private String  description;
 
     @SerializedName("creator")

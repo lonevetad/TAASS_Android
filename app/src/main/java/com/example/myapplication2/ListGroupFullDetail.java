@@ -47,13 +47,14 @@ public class ListGroupFullDetail extends RecyclerView.Adapter<ListGroupFullDetai
                 System.out.println("GroupFullDetail:" + myListData);
                 Toast.makeText(view.getContext(), "click on item: " + myListData.getDescription(), Toast.LENGTH_LONG).show();
 
-                System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA: " + myListData.getGroupId());
+                System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA: " + myListData.getDescription());
                 Intent intent = new Intent(view.getContext(), GroupInfoActivity.class);
                 intent.putExtra("groupId", Long.toString(myListData.getGroupId()));
                 intent.putExtra("groupName", myListData.getGroupName());
                 intent.putExtra("groupDescription", myListData.getDescription());
                 intent.putExtra("groupCreator", myListData.getCreator());
                 intent.putExtra("groupFullDetail", myListData); // NOTA: passo un Serializable
+
                 view.getContext().startActivity(intent);
             }
         });
@@ -85,8 +86,8 @@ public class ListGroupFullDetail extends RecyclerView.Adapter<ListGroupFullDetai
             this.date = (TextView) itemView.findViewById(R.id.dateGroup);
             this.location = (TextView) itemView.findViewById(R.id.locationGroup);
             this.creator = (TextView) itemView.findViewById(R.id.creatorGroup);
-            this.memberCount = (TextView) itemView.findViewById(R.id.memberCountrGroup);
-            this.tagsContainer = (ListView) itemView.findViewById(R.id.tagsContainerGroup);
+            //this.memberCount = (TextView) itemView.findViewById(R.id.memberCountrGroup);
+            //this.tagsContainer = (ListView) itemView.findViewById(R.id.tagsContainerGroup);
             //this.membersContainer = (RecyclerView) itemView.findViewById(R.id.membersContainerGroup);
         }
 
@@ -97,7 +98,7 @@ public class ListGroupFullDetail extends RecyclerView.Adapter<ListGroupFullDetai
             this.date.setText(g.getGroupDate().toString());
             this.location.setText(g.getLocation().getName());
             this.creator.setText(g.getCreator());
-            this.memberCount.setText("Members: " + g.getMembers().size());
+            //this.memberCount.setText("Members: " + g.getMembers().size());
             //adapter = new ArrayAdapter(context, R.id.tagsLayoutPanelGroup, g.getMembers());
             //this.tagsContainer.setAdapter(adapter);
         }
