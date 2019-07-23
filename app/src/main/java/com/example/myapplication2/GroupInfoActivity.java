@@ -21,6 +21,8 @@ import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 
+import com.example.myapplication2.payloadsResponses.GroupFullDetail;
+
 public class GroupInfoActivity extends AppCompatActivity {
 
     String groupId;
@@ -41,6 +43,8 @@ public class GroupInfoActivity extends AppCompatActivity {
     Button nav_esplora;
     Button nav_profilo;
 
+      GroupFullDetail gFull;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,18 +61,21 @@ public class GroupInfoActivity extends AppCompatActivity {
         }
         setUpViewComponent();
         System.out.println(toStringGroup());
+
     }
 
     public void getIncomingIntent(){
+        Intent dataGIven;
         Log.d("GroupInfoActivity","getIncomingIntend: checking for incoming intents.");
-        if(getIntent().hasExtra("groupId") &&  getIntent().hasExtra("groupName") && getIntent().hasExtra("groupDescription") && getIntent().hasExtra("groupCreator")){
+        dataGIven = getIntent();
+        if(dataGIven.hasExtra("groupId") &&  dataGIven.hasExtra("groupName") && dataGIven.hasExtra("groupDescription") && dataGIven.hasExtra("groupCreator")){
 
-            System.out.println("ASDASDASDASD: "+ getIntent().getStringExtra("groupId"));
-            this.groupCreator = getIntent().getStringExtra("groupCreator");
-            this.groupDescription = getIntent().getStringExtra("groupDescription");
-            this.groupId = getIntent().getStringExtra("groupId");
-            this.groupName = getIntent().getStringExtra("groupName");
-
+            System.out.println("ASDASDASDASD: "+ dataGIven.getStringExtra("groupId"));
+            this.groupCreator = dataGIven.getStringExtra("groupCreator");
+            this.groupDescription = dataGIven.getStringExtra("groupDescription");
+            this.groupId = dataGIven.getStringExtra("groupId");
+            this.groupName = dataGIven.getStringExtra("groupName");
+            this.gFull = (GroupFullDetail) dataGIven.getSerializableExtra("groupFullDetail");
         }
     }
 
@@ -76,7 +83,11 @@ public class GroupInfoActivity extends AppCompatActivity {
         return "Id: " + this.groupId +
                 " GroupCreator: " + this.groupCreator +
                 " GroupDescription: " + this.groupDescription +
-                " GroupName: " + this.groupName;
+                " GroupName: " + this.groupName
+                + " GroupDate: " + this.gFull.getGroupDate()
+                + " GroupLocation: " + this.gFull.getLocation()
+                + " GroupTags: " + this.gFull.getTags()
+                + " GroupMembers: " + this.gFull.getMembers();
     }
 
     public void setUpNav(){

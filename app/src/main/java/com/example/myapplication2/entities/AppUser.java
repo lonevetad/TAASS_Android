@@ -33,7 +33,7 @@ public class AppUser implements Serializable {
         this.encrytedPassword = encrytedPassword;
         this.userEmail  = userEmail;
         this.enabled = enabled?1:0;
-        this.dateCreated = new Date(Calendar.getInstance().getTime().getTime());
+        this.dateCreated = new java.sql.Date(Calendar.getInstance().getTime().getTime());
     }
 
     public Long getUserId() {
@@ -84,4 +84,3 @@ public class AppUser implements Serializable {
         return "{id:"+ userId + "userName:"+ this.userEmail+ ", password: "+ this.encrytedPassword  +"}";
     }
 }
-

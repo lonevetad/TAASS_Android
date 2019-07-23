@@ -20,7 +20,9 @@ public class AppGroup implements Serializable {
     private String groupName;
 
     @SerializedName("groupDate")
-    private Date groupDate;
+
+    private java.sql.Date groupDate;
+
 
     @SerializedName("locationId")
     private Long locationId;

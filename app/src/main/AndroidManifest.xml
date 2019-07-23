@@ -15,7 +15,7 @@
         <activity
             android:name=".UserInfoActivity"
             android:label="@string/title_activity_user_info"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".GroupInfoActivity"
             android:label="@string/title_activity_group_info"

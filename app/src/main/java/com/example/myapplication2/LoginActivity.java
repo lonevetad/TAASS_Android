@@ -56,8 +56,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 tv_errorLogin.setVisibility(View.INVISIBLE);
-                String userName = tv_userName.getText().toString();
-                String password = tv_password.getText().toString();
+                String userName = tv_userName.getText().toString().trim();
+                String password = tv_password.getText().toString().trim();
                 try {
                     if(userName.length() > 0 && password.length() > 0) {
                         checkUserPassword(userName, password);
@@ -142,8 +142,9 @@ public class LoginActivity extends AppCompatActivity {
         System.out.println("-------------------------------------------" + response);
         JSONObject jsonResponse = new JSONObject(response);
         System.out.println(jsonResponse);
-        UserLogged.setIstanceData(Long.parseLong(jsonResponse.getString("userId")),jsonResponse.getString("userName"),jsonResponse.getString("userEmail"));
-        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        UserLogged.setIstanceData(Long.parseLong(jsonResponse.getString("userId")),jsonResponse.getString("userName"));
+        UserLogged.getInstance().setUserEmail(jsonResponse.getString("userEmail"));
+        Intent intent = new Intent(LoginActivity.this, EsploraActivity.class);
         startActivity(intent);
 
     }

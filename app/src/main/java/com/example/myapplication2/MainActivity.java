@@ -32,8 +32,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String url = "http:/192.168.43.38:8080/" , serverGroup = url + "Group/", serverUser = url + "User/";
-
+    public static final String url = "http:/192.168.43.252:8080/", serverGroup = url + "Group/", serverUser = url + "User/";
 
     Button button;
     Button button_getAllUser;
@@ -207,13 +206,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        /*
+         ora eseguiamo tutte le cose secondarie, dopo il caricamento
+        * */
 
         if(! UserLogged.getInstance().isLogged()){
             //not logged? -> logga !
             goToLogInActivity();
         }
 
-
+        // end on create
     }
 
     public void provaRichiesta(){

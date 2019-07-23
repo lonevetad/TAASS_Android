@@ -10,7 +10,11 @@ public class UserLogged{
     public String email = "";
     public boolean isLogged = false;
 
-    protected UserLogged(){}
+    protected UserLogged(){
+        userName = "";
+        userEmail = "";
+        isLogged = false;
+    }
 
     public static synchronized UserLogged getInstance(){
         if(myIstance == null)
@@ -67,4 +71,11 @@ public class UserLogged{
         isLogged = logged;
     }
 
+    public String getUserEmail() {
+        return email;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.email = userEmail;
+    }
 }
