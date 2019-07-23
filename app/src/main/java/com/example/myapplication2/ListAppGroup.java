@@ -24,7 +24,7 @@ public class ListAppGroup extends RecyclerView.Adapter<ListAppGroup.ViewHolder>{
     @Override
     public ListAppGroup.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View listItem= layoutInflater.inflate(R.layout.list_item, parent, false);
+        View listItem= layoutInflater.inflate(R.layout.group_full_detail_element, parent, false);
         ListAppGroup.ViewHolder viewHolder = new ListAppGroup.ViewHolder(listItem);
         return viewHolder;
     }
@@ -63,9 +63,10 @@ public class ListAppGroup extends RecyclerView.Adapter<ListAppGroup.ViewHolder>{
         public RelativeLayout relativeLayout;
         public ViewHolder(View itemView) {
             super(itemView);
-            this.imageView = (ImageView) itemView.findViewById(R.id.imageView);
-            this.textView = (TextView) itemView.findViewById(R.id.textView);
+            /*this.imageView = (ImageView) itemView.findViewById(R.id.imageView);
+            this.textView = (TextView) itemView.findViewById(R.id.textView2);
             relativeLayout = (RelativeLayout)itemView.findViewById(R.id.relativeLayout);
+            */
         }
     }
 }

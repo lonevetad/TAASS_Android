@@ -1,5 +1,9 @@
-package com.example.myapplication2.entities;
+package com.example.myapplication2.payloadsResponses;
 
+import com.example.myapplication2.entities.AppGroup;
+import com.example.myapplication2.entities.AppTag;
+import com.example.myapplication2.entities.AppUser;
+import com.example.myapplication2.entities.GoogleLocation;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
@@ -35,6 +39,9 @@ public class GroupFullDetail implements Serializable {
 
     @SerializedName("members")
     private List<AppUser> members;
+
+
+    public GroupFullDetail(){}
 
     public GroupFullDetail(AppGroup g, List<AppTag> t, List<AppUser> members, GoogleLocation location) {
         this.groupId = g.getGroupId();

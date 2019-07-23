@@ -11,7 +11,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.myapplication2.entities.AppGroup;
+import com.example.myapplication2.payloadsResponses.GroupFullDetail;
+import com.example.myapplication2.payloadsResponses.GroupSearchAdvPayload;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -23,26 +24,29 @@ import java.util.List;
 public class EsploraActivity extends AppCompatActivity {
 
     private Gson gson;
-    private List<AppGroup> allGroups;
+    private List<GroupFullDetail> allGroups;
+    private GroupSearchAdvPayload filters;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_esplora);
 
         setUpAllStuff();
         getAllGroup();
     }
 
     //Come mounted or create di vue
-    public void setUpAllStuff(){
-
-        GsonBuilder gsonBuilder = new GsonBuilder();
+    public void setUpAllStuff() {
+        GsonBuilder gsonBuilder;
+        filters = new GroupSearchAdvPayload();
+        gsonBuilder = new GsonBuilder();
         gsonBuilder.setDateFormat("yyyy/MM/dd");
         gson = gsonBuilder.create();
+
     }
 
-    public void getAllGroup(){
+    public void getAllGroup() {
 
         String server_url = MainActivity.serverGroup + "listGroupRest";
 
@@ -52,16 +56,18 @@ public class EsploraActivity extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
 
-                Type typeOfList = new TypeToken<ArrayList<AppGroup>>(){}.getType();
-                allGroups = (List<AppGroup>)gson.fromJson(response,typeOfList);
+                Type typeOfList = new TypeToken<ArrayList<GroupFullDetail>>() {
+                }.getType();
+                allGroups = (List<GroupFullDetail>) gson.fromJson(response, typeOfList);
                 System.out.println(response);
-                System.out.println("AllGroup: "+allGroups);
-                System.out.println("AppGroupName:" + allGroups.get(0).getGroupName());
+                System.out.println("AllGroup: " + allGroups);
+                //System.out.println("AppGroupName:" + allGroups.get(0).getGroupName());
                 requestQueue.stop();
-                RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
-                ListAppGroup adapter = new ListAppGroup(allGroups.toArray(new AppGroup[allGroups.size()]));
+                RecyclerView recyclerView = (RecyclerView) findViewById(R.id.listGroupEsplora);
+                ListGroupFullDetail adapter = new ListGroupFullDetail(allGroups.toArray(new GroupFullDetail[allGroups.size()]));
                 recyclerView.setHasFixedSize(true);
                 recyclerView.setLayoutManager(new LinearLayoutManager(EsploraActivity.this));
+
                 recyclerView.setAdapter(adapter);
             }
         }, new Response.ErrorListener() {
