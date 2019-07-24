@@ -27,7 +27,7 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/border"
                 android:contentDescription="Icon"
-                android:src="@drawable/photo2" />
+                android:src="@drawable/photo_1563416544963" />
 
             <LinearLayout
                 android:layout_width="210dp"
