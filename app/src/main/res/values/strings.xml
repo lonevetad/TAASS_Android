@@ -6,4 +6,9 @@
     <string name="title_activity_group_info">GroupInfoActivity</string>
     <string name="title_activity_user_info">UserInfoActivity</string>
     <string name="title_activity_custompopup2">custompopup2</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="date_label_set">Press the button to set the date</string>
+    <string name="date_button_set">Set Date</string>
+    <string name="date_view_set">The Date is: </string>
+    <string name="date_selected"></string>
 </resources>

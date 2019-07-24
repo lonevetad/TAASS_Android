@@ -40,27 +40,59 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginLeft="10dp">
-        <EditText
-            android:id="@+id/editText3"
+        <TextView
+            android:id="@+id/startDate"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:ems="10"
             android:hint="Start date"
             android:textStyle="bold"
-            android:inputType="date"
-            android:paddingLeft="10dp"/>
+            android:paddingLeft="10dp"
+            android:onClick="setDateStart"/>
 
-        <EditText
-            android:id="@+id/editText4"
+        <TextView
+            android:id="@+id/endDate"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:ems="10"
             android:hint="End date"
-            android:inputType="date"
             android:textStyle="bold"
-            android:paddingLeft="10dp"/>
+            android:paddingLeft="10dp"
+            android:onClick="setDateEnd"/>
 
     </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:text="@string/date_label_set"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button1"
+        android:layout_marginTop="66dp"
+        android:layout_toLeftOf="@+id/button1"
+        android:text="@string/date_view_set"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/button1"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="72dp"
+        android:text="@string/date_selected"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+
+
 
     <ImageButton
         android:id="@+id/button_searchgroup"
