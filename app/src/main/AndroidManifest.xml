@@ -13,6 +13,10 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".custompopup2"
+            android:label="@string/title_activity_custompopup2"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".UserInfoActivity"
             android:label="@string/title_activity_user_info"
             android:theme="@style/AppTheme.NoActionBar" />

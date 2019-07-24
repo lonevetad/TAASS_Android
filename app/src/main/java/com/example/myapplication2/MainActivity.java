@@ -49,6 +49,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
+
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -210,12 +215,11 @@ public class MainActivity extends AppCompatActivity {
          ora eseguiamo tutte le cose secondarie, dopo il caricamento
         * */
 
-        if(! UserLogged.getInstance().isLogged()){
+        if(! UserLogged.getInstance().isLogged()) {
             //not logged? -> logga !
             goToLogInActivity();
         }
 
-        // end on create
     }
 
     public void provaRichiesta(){
