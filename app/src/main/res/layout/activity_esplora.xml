@@ -16,7 +16,7 @@
             android:orientation="horizontal"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="15dp">
 
             <EditText
                 android:id="@+id/search_groupName"
@@ -47,24 +47,57 @@
                 android:background="@android:color/transparent"
                 android:layout_marginLeft="10dp"/>
 
+
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <ImageButton
-                android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:id="@+id/startDate"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:src="@drawable/ic_keyboard_arrow_down_black_24dp" />
+                android:hint="Start date"
+                android:backgroundTint="@color/colorPrimary"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:text="StartDate"
+                android:paddingLeft="10dp"
+                android:onClick="setDateStart"
+                android:textSize="19dp"/>
 
+            <TextView
+                android:id="@+id/endDate"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:hint="End date"
+                android:backgroundTint="@color/colorPrimary"
+                android:textColor="@color/colorPrimary"
+                android:text="EndDate"
+                android:textStyle="bold"
+                android:paddingLeft="10dp"
+                android:layout_marginLeft="20dp"
+                android:onClick="setDateEnd"
+                android:textSize="19dp"/>
         </LinearLayout>
+        <android.support.v7.widget.RecyclerView
+            android:layout_marginTop="15dp"
+            android:id="@+id/tagsRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+        </android.support.v7.widget.RecyclerView>
+
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/listGroupEsplora"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginBottom="10dp"

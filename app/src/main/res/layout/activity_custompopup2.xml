@@ -5,14 +5,33 @@
     android:layout_height="475dp"
     android:orientation="vertical"
     android:layout_gravity="center"
-    android:paddingTop="5dp">
+    android:paddingTop="5dp"
+    android:background="#f2f2f2">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp">
+        <TextView
+            android:id="@+id/txtclose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:text="X"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+
+            android:gravity="end"/>
+
+    </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="15dp">
+        android:layout_marginTop="20dp">
 
         <EditText
             android:id="@+id/search_groupName"
@@ -23,7 +42,8 @@
             android:ems="10"
             android:hint="Group Title"
             android:textColor="@color/colorPrimary"
-            android:paddingLeft="10dp"/>
+            android:paddingLeft="10dp"
+            android:textSize="19dp"/>
         <EditText
             android:id="@+id/search_creator"
             android:layout_width="150dp"
@@ -33,64 +53,50 @@
             android:ems="10"
             android:hint="Creator"
             android:textColor="@color/colorPrimary"
-            android:paddingLeft="10dp"/>
+            android:paddingLeft="10dp"
+            android:layout_marginLeft="20dp"
+            android:textSize="19dp"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginLeft="10dp">
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp">
         <TextView
             android:id="@+id/startDate"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:hint="Start date"
+            android:backgroundTint="@color/colorPrimary"
+            android:textColor="@color/colorPrimary"
             android:textStyle="bold"
             android:paddingLeft="10dp"
-            android:onClick="setDateStart"/>
+
+            android:textSize="19dp"/>
 
         <TextView
             android:id="@+id/endDate"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:hint="End date"
+            android:backgroundTint="@color/colorPrimary"
+            android:textColor="@color/colorPrimary"
             android:textStyle="bold"
             android:paddingLeft="10dp"
-            android:onClick="setDateEnd"/>
-
+            android:layout_marginLeft="20dp"
+            android:onClick="setDateEnd"
+            android:textSize="19dp"/>
     </LinearLayout>
 
+    <android.support.v7.widget.RecyclerView
+        android:layout_marginTop="20dp"
+        android:id="@+id/tagsRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
-        android:text="@string/date_label_set"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button1"
-        android:layout_marginTop="66dp"
-        android:layout_toLeftOf="@+id/button1"
-        android:text="@string/date_view_set"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/button1"
-        android:layout_below="@+id/textView2"
-        android:layout_marginTop="72dp"
-        android:text="@string/date_selected"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
+    </android.support.v7.widget.RecyclerView>
 
 
 
