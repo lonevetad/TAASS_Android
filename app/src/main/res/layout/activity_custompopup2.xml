@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="350dp"
+    android:layout_height="475dp"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:paddingTop="5dp"
+    android:background="#f2f2f2">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp">
+        <TextView
+            android:id="@+id/txtclose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:text="X"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+
+            android:gravity="end"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp">
+
+        <EditText
+            android:id="@+id/search_groupName"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimary"
+            android:textStyle="bold"
+            android:ems="10"
+            android:hint="Group Title"
+            android:textColor="@color/colorPrimary"
+            android:paddingLeft="10dp"
+            android:textSize="19dp"/>
+        <EditText
+            android:id="@+id/search_creator"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimary"
+            android:textStyle="bold"
+            android:ems="10"
+            android:hint="Creator"
+            android:textColor="@color/colorPrimary"
+            android:paddingLeft="10dp"
+            android:layout_marginLeft="20dp"
+            android:textSize="19dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp">
+        <TextView
+            android:id="@+id/startDate"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:hint="Start date"
+            android:backgroundTint="@color/colorPrimary"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:paddingLeft="10dp"
+
+            android:textSize="19dp"/>
+
+        <TextView
+            android:id="@+id/endDate"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:hint="End date"
+            android:backgroundTint="@color/colorPrimary"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:paddingLeft="10dp"
+            android:layout_marginLeft="20dp"
+            android:onClick="setDateEnd"
+            android:textSize="19dp"/>
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_marginTop="20dp"
+        android:id="@+id/tagsRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+
+    <ImageButton
+        android:id="@+id/button_searchgroup"
+        android:layout_width="50dp"
+        android:layout_height="match_parent"
+        android:src="@drawable/ic_search_black_24dp"
+        android:background="@android:color/transparent"
+        />
+
+
+
+</LinearLayout>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativeLayoutGFDE"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/border"
+    android:orientation="vertical"
+    android:layout_marginBottom="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginRight="5dp">
+
+
+        <LinearLayout
+            android:id="@+id/staticInfo"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginRight="5dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:contentDescription="Icon"
+                android:src="@drawable/photo_1563416544963" />
+
+            <LinearLayout
+                android:layout_width="210dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:padding="10dp"
+                >
+
+                <TextView
+                    android:id="@+id/nameGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nome Gruppo"
+                    android:textSize="16sp"
+                    android:paddingLeft="5dp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="5dp"
+                    android:textColor="@android:color/black"/>
+
+                <TextView
+                    android:id="@+id/dateGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Data Gruppo"
+                    android:textSize="16sp"
+                    android:paddingLeft="5dp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="5dp"
+                    android:textColor="@android:color/black"/>
+
+                <TextView
+                    android:id="@+id/locationGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Luogo Gruppo"
+                    android:textSize="16sp"
+                    android:paddingLeft="5dp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="5dp"
+                    android:textColor="@android:color/black"/>
+
+                <TextView
+                    android:id="@+id/creatorGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Creatore Gruppo"
+                    android:textSize="16sp"
+                    android:paddingLeft="5dp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="5dp"
+                    android:textColor="@android:color/black"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
